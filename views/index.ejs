@@ -5,7 +5,19 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <% if (messages.length > 0 ) { %>
+      <% messages.forEach(message => { %>
+              <h3><%= message.user %></h3>
+              <p><%= message.text %></p>
+              <p><%= message.added %></p>
+          <% }) %>
+  <% } else { %>
+      <p>There are no messages to display</p>
+  <% } %>
+
+  <a href="/new"><button>Create new message</button></a>
+
   </body>
 </html>
